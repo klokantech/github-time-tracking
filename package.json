@@ -1,0 +1,17 @@
+{
+	"fullName": "GitHub Time Tracking",
+	"name": "github-time-tracking",
+	"description": "Add time tracking to the GitHub Issue Tracker with Harvest.",
+	"license": "",
+	"contributors": [],
+	"author": "Petr Pridal Klokan Technologies GmbH",
+	"url": "",
+        "icon": "img/github-time-tracking-48.png",
+        "icon64": "img/github-time-tracking-128.png",
+    "homepage": "http://try.hrv.st/66lx",
+	"dependencies": ["api-utils", "addon-kit"],
+	"version": "0.4",
+	"lib": "lib",
+	"main": "main",
+	"id": "jid0-bAfvy46pqbx8KSUnGc156Ng6bVM"
+}
