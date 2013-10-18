@@ -26,4 +26,4 @@ Firefox Add-on:
 
 Chrome Extension:
 
-    $ zip -r github-time-tracking.zip manifest.json data img
+    $ zip -r github-time-tracking.zip manifest.json data img lib
