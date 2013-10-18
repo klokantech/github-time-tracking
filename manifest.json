@@ -9,11 +9,20 @@
       "48": "img/github-time-tracking-48.png",
       "16": "img/github-time-tracker-16.png"
    },
-
+   "background": {
+      "scripts": ["lib/background.js"],
+      "persistent": true
+   },
    "content_scripts": [ {
       "js": [ "data/index.js" ],
       "matches": [ "https://github.com/*/issues/*", "https://github.com/*/pull/*" ]
    } ],
    "content_security_policy": "script-src 'self' https://*.harvestapp.com; object-src 'self'",
-   "permissions": [ "https://github.com/*", "https://*.harvestapp.com/*", "tabs" ]
+   "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "https://github.com/*",
+      "https://*.harvestapp.com/*",
+      "tabs"
+   ]
 }
