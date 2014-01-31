@@ -1,6 +1,6 @@
 {
    "name": "GitHub Time Tracking",
-   "version": "0.6",
+   "version": "0.6.1",
    "manifest_version": 2,
 
    "description": "Add time tracking to the GitHub Issue Tracker with Harvest.",
