@@ -1,6 +1,6 @@
 var div = document.createElement('div');
 div.className='harvest-timer';
-var el = document.getElementsByClassName('issue-number')[0];
+var el = document.getElementsByClassName('gh-header-number')[0];
 var href = window.location.href;
 var pattern = /^https:\/\/github.com\/(.*?)\/(.*?)\/(.*\d+)$/
 var m = href.match(pattern);
