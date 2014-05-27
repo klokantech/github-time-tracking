@@ -1,22 +1,34 @@
-if (window.location.href.match(/^https:\/\/github.com\/(.*?)\/(.*?)\/(.*\d+)$/))
-{
-    updateGitHub();
-    window.setInterval(function() { updateGitHub(); }, 3000);
-}
-else if (window.location.href.match(/^https:\/\/huboard.com\/.*$/))
-{
-    alert('huboard not integrated yet');
+if (document.getElementsByClassName("harvest-timer").length == 0) {
+    updatePage();
+    window.setInterval(function() { updatePage(); }, 3000);
 }
 
-function updateGitHub() {
+function updatePage() {
     if (document.getElementsByClassName("harvest-timer").length == 0) {
         addScriptElement();
-        var m = window.location.href.match(/^https:\/\/github.com\/(.*?)\/(.*?)\/(.*\d+)$/);
-        var name = document.getElementsByClassName('js-issue-title')[0].innerHTML;
-        document.getElementsByClassName('gh-header-number')[0].appendChild(
-            getTrackingElement(m[1], m[2], m[3], name)
-        );
+        if (window.location.href.match(/^https:\/\/github.com\/(.*?)\/(.*?)\/(.*\d+)$/))
+        {
+            appendGitHub();
+        }
+        else if (window.location.href.match(/^https:\/\/huboard.com\/.*$/))
+        {
+            appendHuboard();
+        }
     }
+}
+function appendHuboard() {
+    if (document.getElementsByClassName('fullscreen-header').length > 0) {
+        var basic = document.getElementsByClassName('fullscreen-header')[0].innerText.match(/^(.*) #(\d+)/);
+        var url = window.location.href.match(/^https:\/\/huboard.com\/(.*?)\/(.*?)#\/issues\/(.*\d+)$/);
+        var data = { 'account' : url[1], 'project' : url[2], 'id' : 'issues/' + basic[2], 'name' : basic[1] };
+        document.getElementsByClassName('fullscreen-header')[0].children[0].appendChild(createTrackingElement(data));
+    }
+}
+function appendGitHub() {
+    var url = window.location.href.match(/^https:\/\/github.com\/(.*?)\/(.*?)\/(.*\d+)$/);
+    var name = document.getElementsByClassName('js-issue-title')[0].innerHTML;
+    var data = { 'account' : url[1], 'project' : url[2], 'id' : url[3], 'name' : name };
+    document.getElementsByClassName('gh-header-number')[0].appendChild(createTrackingElement(data));
 }
 function addScriptElement() {
     var s = document.createElement('script');
@@ -35,11 +47,11 @@ function addScriptElement() {
                 "ph.parentNode.insertBefore(s, ph);";
     ph.parentNode.insertBefore(s, ph);
 }
-function getTrackingElement(account, project, item, name) {
+function createTrackingElement(data) {
     var div = document.createElement('div');
     div.className='harvest-timer';
-    div.setAttribute('data-account', JSON.stringify({'id':account}));
-    div.setAttribute('data-project', JSON.stringify({'id':project,'name':project}));
-    div.setAttribute('data-item', JSON.stringify({'id':item,'name':name}));
+    div.setAttribute('data-account', JSON.stringify({ 'id' : data.account }));
+    div.setAttribute('data-project', JSON.stringify({ 'id' : data.project, 'name' : data.project }));
+    div.setAttribute('data-item', JSON.stringify({ 'id' : data.id, 'name' : data.name }));
     return div;
 }
