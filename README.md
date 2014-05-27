@@ -1,7 +1,7 @@
 GitHub Time Tracking
 ====================
 
-Add time tracking to the GitHub Issue Tracker (Issues 2.0) with [Harvest](http://www.getharvest.com/?r=fa37b8).
+Add time tracking to the GitHub Issue Tracker (Issues 2.0) and Huboard.com with [Harvest](http://www.getharvest.com/?r=fa37b8).
 
 ![GitHub Time Tracking](https://raw.github.com/klokantech/github-time-tracking/master/img/github-time-tracking-440x280.jpg)
 
