@@ -56,5 +56,7 @@ function appendGitHub() {
     var name = document.getElementsByClassName('js-issue-title')[0].innerHTML;
     var data = { 'account' : url[1], 'project' : url[2], 'id' : url[3], 'name' : name };
     var trackingElement = createTrackingElement(data);
+    trackingElement.style.width = '20px';
+    trackingElement.style.height = '20px';
     document.getElementsByClassName('gh-header-number')[0].appendChild(trackingElement);
 }
