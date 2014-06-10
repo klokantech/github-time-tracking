@@ -1,6 +1,13 @@
 var div = document.createElement('div');
-div.className='harvest-timer';
+div.className='harvest-timer minibutton';
 var el = document.getElementsByClassName('gh-header-number')[0];
+div.style.padding='5px 7px';
+div.style.width='auto';
+div.style.height='auto';
+div.style.float='right';
+div.style.margin='3px -7px 0 0';
+div.style.border='1px solid #d5d5d5';
+div.style['border-radius']='3px';
 var href = window.location.href;
 var pattern = /^https:\/\/github.com\/(.*?)\/(.*?)\/(.*\d+)$/
 var m = href.match(pattern);
